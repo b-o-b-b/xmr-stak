@@ -794,11 +794,10 @@ void minethd::multiway_work_main()
 			iNonce = *piNonce[0];
 
 		uint8_t new_version = oWork.getVersion();
-		coinDescription coinDesc = ::jconf::inst()->GetCurrentCoinSelection().GetDescription(oWork.iPoolId);
-		printer::inst()->print_msg(L1, "Block Version %u | fork %u", new_version, coinDesc.GetMiningForkVersion());
+
 		if(new_version != version || oWork.iPoolId != lastPoolId)
 		{
-			
+			coinDescription coinDesc = ::jconf::inst()->GetCurrentCoinSelection().GetDescription(oWork.iPoolId);
 			if(new_version >= coinDesc.GetMiningForkVersion())
 			{
 				miner_algo = coinDesc.GetMiningAlgo();
