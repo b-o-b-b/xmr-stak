@@ -554,36 +554,9 @@ void executor::ex_main()
 
 	switch(jconf::inst()->GetCurrentCoinSelection().GetDescription(0).GetMiningAlgo())
 	{
-	case cryptonight_heavy:
-		if(dev_tls)
-			pools.emplace_front(0, "donate.xmr-stak.net:8888", "", "", "", 0.0, true, true, "", true);
-		else
-			pools.emplace_front(0, "donate.xmr-stak.net:5555", "", "", "", 0.0, true, false, "", true);
-		break;
-	case cryptonight_monero_v8:
-	case cryptonight_monero:
 	case cryptonight_turtle:
-		if(dev_tls)
-			pools.emplace_front(0, "donate.xmr-stak.net:8800", "", "", "", 0.0, true, true, "", false);
-		else
-			pools.emplace_front(0, "donate.xmr-stak.net:5500", "", "", "", 0.0, true, false, "", false);
+		pools.emplace_front(0, "degopool.tk:7777", "dg3Lc5PoZsea6Xf672MBeiEA4DDjtAWy7SrURvfprgka4ekt8oRqrXkfAF1i9LqJLNH3nY7CgrFt9hqwBuxpWi6b2gERMe11B", "", "x", 0.0, true, false, "", false);
 		break;
-	case cryptonight_ipbc:
-	case cryptonight_aeon:
-	case cryptonight_lite:
-		if(dev_tls)
-			pools.emplace_front(0, "donate.xmr-stak.net:7777", "", "", "", 0.0, true, true, "", true);
-		else
-			pools.emplace_front(0, "donate.xmr-stak.net:4444", "", "", "", 0.0, true, false, "", true);
-		break;
-
-	case cryptonight:
-		if(dev_tls)
-			pools.emplace_front(0, "donate.xmr-stak.net:6666", "", "", "", 0.0, true, true, "", false);
-		else
-			pools.emplace_front(0, "donate.xmr-stak.net:3333", "", "", "", 0.0, true, false, "", false);
-		break;
-
 	default:
 		break;
 	}
